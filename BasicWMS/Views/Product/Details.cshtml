@@ -1,0 +1,71 @@
+﻿@model BasicWMS.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Product</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PartNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PartNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ProductLabel)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProductLabel)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.StartingInventory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartingInventory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InventoryReceived)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InventoryReceived)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InventoryShipped)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InventoryShipped)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InventoryOnHand)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InventoryOnHand)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MinimumRequired)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MinimumRequired)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ProductId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

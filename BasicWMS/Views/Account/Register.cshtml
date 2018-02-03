@@ -1,0 +1,49 @@
+﻿@model BasicWMS.Models.RegisterModel
+@{
+    ViewBag.Title = "Register";
+}
+<body>
+    <div class="container">
+        <section id="loginForm">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, htmlAttributes: new { @class = "form-signin" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary()
+
+                <h2 class="form-signin-heading">Registration Form</h2>
+                <div class="input-group">
+                    @Html.LabelFor(m => m.UserName, htmlAttributes: new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    @Html.TextBoxFor(m => m.UserName, htmlAttributes: new
+                            {
+                                @class = "form-control",
+                                placeholder = "User Name"
+                            })
+                </div>
+                <div class="input-group">
+                    @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    @Html.PasswordFor(m => m.Password, htmlAttributes: new
+                            {
+                                @class = "form-control",
+                                placeholder = "Password"
+                            })
+                </div>
+                <div class="input-group">
+                    @Html.LabelFor(m => m.ConfirmPassword, htmlAttributes: new { @class = "sr-only" })
+                    <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                    @Html.PasswordFor(m => m.ConfirmPassword, htmlAttributes: new
+                            {
+                                @class = "form-control",
+                                placeholder = "Password"
+                            })
+                </div>
+                <button class="btn btn-success btn-block" type="submit">Register Now</button>
+            }
+        </section>
+
+    </div>
+</body>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

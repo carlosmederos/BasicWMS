@@ -1,0 +1,57 @@
+﻿@model BasicWMS.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Order</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.First)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.First)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Middle)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Middle)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Last)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Last)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberShipped)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberShipped)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.OrderDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderDate)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.OrderId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

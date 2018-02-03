@@ -1,0 +1,49 @@
+﻿@using System.Web.Mvc.Html
+@model BasicWMS.Models.LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+<body>
+    <div class="container">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-signin" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true)
+
+                <h2 class="form-signin-heading">Log in</h2>
+                @Html.LabelFor(m => m.UserName, htmlAttributes: new { @class = "sr-only" })
+                @Html.TextBoxFor(m => m.UserName, htmlAttributes: new
+                            {
+                                @class = "form-control",
+                                placeholder = "User Name"
+                            })
+                @Html.ValidationMessageFor(m => m.UserName)
+
+                @Html.LabelFor(m => m.Password, htmlAttributes: new { @class = "sr-only" })
+                @Html.PasswordFor(m => m.Password, htmlAttributes: new
+                            {
+                                @class = "form-control",
+                                placeholder = "Password"
+                            })
+
+                @Html.ValidationMessageFor(m => m.Password)
+                <div class="checkbox">
+                    @Html.CheckBoxFor(m => m.RememberMe)
+                    @Html.LabelFor(m => m.RememberMe)
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+                <p>
+                    @Html.ActionLink("Register", "Register") if you don't have an account.
+                </p>
+            }
+        </section>
+
+    </div>
+</body>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
