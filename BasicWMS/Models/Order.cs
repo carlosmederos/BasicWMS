@@ -10,7 +10,7 @@ namespace BasicWMS.Models
     {
 
         public int OrderId { get; set; }
-
+        
         public string Title { get; set; }
 
         public string First { get; set; }

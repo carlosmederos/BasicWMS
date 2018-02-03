@@ -10,6 +10,7 @@ using BasicWMS.DAL;
 
 namespace BasicWMS.Controllers
 {
+    [Authorize]
     public class SupplierController : Controller
     {
         private WmsContext db = new WmsContext();

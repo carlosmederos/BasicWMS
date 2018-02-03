@@ -41,6 +41,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Activities" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
@@ -184,10 +185,12 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductApiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="DAL\WmsContext.cs" />
+    <Compile Include="DAL\WmsDatabaseInitializer.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -195,6 +198,10 @@
     <Compile Include="Migrations\201801311726491_InitialCreate.cs" />
     <Compile Include="Migrations\201801311726491_InitialCreate.Designer.cs">
       <DependentUpon>201801311726491_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201802031519244_SeedData.cs" />
+    <Compile Include="Migrations\201802031519244_SeedData.Designer.cs">
+      <DependentUpon>201802031519244_SeedData.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
@@ -298,6 +305,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801311726491_InitialCreate.resx">
       <DependentUpon>201801311726491_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201802031519244_SeedData.resx">
+      <DependentUpon>201802031519244_SeedData.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
