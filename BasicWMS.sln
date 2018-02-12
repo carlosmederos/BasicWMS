@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS", "BasicWMS\BasicWMS.csproj", "{6687BA68-C370-4688-AA94-9F89A60B4FEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Tests", "BasicWMS.Tests\BasicWMS.Tests.csproj", "{79449EBE-63CB-4F44-AB21-71C416FF7B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Models", "BasicWMS.Models\BasicWMS.Models.csproj", "{8442BC9A-67B1-4813-952C-F97AF9AED7F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +21,10 @@ Global
 		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
