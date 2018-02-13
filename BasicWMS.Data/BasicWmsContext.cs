@@ -37,14 +37,14 @@ namespace BasicWMS.Data
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Configurations.Add(new UserConfiguration);
-            modelBuilder.Configurations.Add(new UserRoleConfiguration);
-            modelBuilder.Configurations.Add(new RoleConfiguration);
-            modelBuilder.Configurations.Add(new ProductConfiguration);
-            modelBuilder.Configurations.Add(new ProductTypeConfiguration);
-            modelBuilder.Configurations.Add(new StockConfiguration);
-            modelBuilder.Configurations.Add(new OrderConfiguration);
-            modelBuilder.Configurations.Add(new SupplierConfiguration);
+            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Configurations.Add(new UserRoleConfiguration());
+            modelBuilder.Configurations.Add(new RoleConfiguration());
+            modelBuilder.Configurations.Add(new ProductConfiguration());
+            modelBuilder.Configurations.Add(new ProductTypeConfiguration());
+            modelBuilder.Configurations.Add(new StockConfiguration());
+            modelBuilder.Configurations.Add(new OrderConfiguration());
+            modelBuilder.Configurations.Add(new SupplierConfiguration());
 
         }
     }
