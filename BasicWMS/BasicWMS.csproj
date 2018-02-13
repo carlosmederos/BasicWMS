@@ -189,22 +189,10 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\PurchaseController.cs" />
     <Compile Include="Controllers\SupplierController.cs" />
-    <Compile Include="DAL\WmsContext.cs" />
-    <Compile Include="DAL\WmsDatabaseInitializer.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801311726491_InitialCreate.cs" />
-    <Compile Include="Migrations\201801311726491_InitialCreate.Designer.cs">
-      <DependentUpon>201801311726491_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802031519244_SeedData.cs" />
-    <Compile Include="Migrations\201802031519244_SeedData.Designer.cs">
-      <DependentUpon>201802031519244_SeedData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -299,15 +287,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801311726491_InitialCreate.resx">
-      <DependentUpon>201801311726491_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802031519244_SeedData.resx">
-      <DependentUpon>201802031519244_SeedData.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
+    <ProjectReference Include="..\BasicWMS.Data\BasicWMS.Data.csproj">
+      <Project>{a03e4c51-e3ac-4c0d-a05b-c005025ea6de}</Project>
+      <Name>BasicWMS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicWMS.Models\BasicWMS.Models.csproj">
+      <Project>{8442bc9a-67b1-4813-952c-f97af9aed7f0}</Project>
+      <Name>BasicWMS.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
