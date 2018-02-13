@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Tests", "BasicWMS.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Models", "BasicWMS.Models\BasicWMS.Models.csproj", "{8442BC9A-67B1-4813-952C-F97AF9AED7F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Data", "BasicWMS.Data\BasicWMS.Data.csproj", "{A03E4C51-E3AC-4C0D-A05B-C005025EA6DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8442BC9A-67B1-4813-952C-F97AF9AED7F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03E4C51-E3AC-4C0D-A05B-C005025EA6DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03E4C51-E3AC-4C0D-A05B-C005025EA6DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03E4C51-E3AC-4C0D-A05B-C005025EA6DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03E4C51-E3AC-4C0D-A05B-C005025EA6DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

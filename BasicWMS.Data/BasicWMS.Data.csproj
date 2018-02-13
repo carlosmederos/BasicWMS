@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8442BC9A-67B1-4813-952C-F97AF9AED7F0}</ProjectGuid>
+    <ProjectGuid>{A03E4C51-E3AC-4C0D-A05B-C005025EA6DE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BasicWMS.Models</RootNamespace>
-    <AssemblyName>BasicWMS.Models</AssemblyName>
+    <RootNamespace>BasicWMS.Data</RootNamespace>
+    <AssemblyName>BasicWMS.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -39,17 +44,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Error.cs" />
-    <Compile Include="IModelBase.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="Product.cs" />
-    <Compile Include="ProductType.cs" />
-    <Compile Include="Role.cs" />
-    <Compile Include="Stock.cs" />
-    <Compile Include="Supplier.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="BasicWmsContext.cs" />
+    <Compile Include="Configurations\ModelBaseConfiguration.cs" />
+    <Compile Include="Configurations\OrderConfiguration.cs" />
+    <Compile Include="Configurations\ProductConfiguration.cs" />
+    <Compile Include="Configurations\ProductTypeConfiguration.cs" />
+    <Compile Include="Configurations\RoleConfiguration.cs" />
+    <Compile Include="Configurations\StockConfiguration.cs" />
+    <Compile Include="Configurations\SupplierConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
+    <Compile Include="Configurations\UserRoleConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BasicWMS.Models\BasicWMS.Models.csproj">
+      <Project>{8442BC9A-67B1-4813-952C-F97AF9AED7F0}</Project>
+      <Name>BasicWMS.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicWMS\BasicWMS.csproj">
+      <Project>{6687ba68-c370-4688-aa94-9f89a60b4feb}</Project>
+      <Name>BasicWMS</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
