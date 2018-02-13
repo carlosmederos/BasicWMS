@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Web;
 
-namespace BasicWMS.Models
+namespace BasicWMS.Model
 {
     public class Product : IModelBase
     {

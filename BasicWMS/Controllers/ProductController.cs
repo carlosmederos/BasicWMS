@@ -5,22 +5,28 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using BasicWMS.Models;
-using BasicWMS.DAL;
+using BasicWMS.Model;
+using BasicWMS.Service;
 
 namespace BasicWMS.Controllers
 {
     [Authorize]
     public class ProductController : Controller
     {
-        private WmsContext db = new WmsContext();
+        private readonly IProductService _productService;
+
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+        }
 
         //
         // GET: /Product/
 
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            IEnumerable<Product> products = _productService.GetProducts().ToList();
+            return View(products);
         }
 
         //
@@ -28,7 +34,8 @@ namespace BasicWMS.Controllers
 
         public ActionResult Details(int id = 0)
         {
-            Product product = db.Products.Find(id);
+
+            Product product = _productService.GetProduct(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -53,8 +60,8 @@ namespace BasicWMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
-                db.SaveChanges();
+                _productService.CreateProduct(product);
+                _productService.SaveProduct();
                 return RedirectToAction("Index");
             }
 
@@ -66,7 +73,7 @@ namespace BasicWMS.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            Product product = _productService.GetProduct(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -83,8 +90,8 @@ namespace BasicWMS.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
-                db.SaveChanges();
+                _productService.UpdateProduct(product);
+                _productService.SaveProduct();
                 return RedirectToAction("Index");
             }
             return View(product);
@@ -95,7 +102,7 @@ namespace BasicWMS.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Product product = db.Products.Find(id);
+            Product product = _productService.GetProduct(id);
             if (product == null)
             {
                 return HttpNotFound();
@@ -110,16 +117,17 @@ namespace BasicWMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
-            db.SaveChanges();
+            Product product = _productService.GetProduct(id);
+            _productService.DeleteProduct(product);
+            _productService.SaveProduct();
             return RedirectToAction("Index");
         }
-
+        /*
         protected override void Dispose(bool disposing)
         {
             db.Dispose();
             base.Dispose(disposing);
         }
+        */
     }
 }

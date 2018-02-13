@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
-using BasicWMS.Models;
+using BasicWMS.Model;
 
 namespace BasicWMS.Filters
 {

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BasicWMS.Models.Product>
+﻿@model IEnumerable<BasicWMS.Model.Product>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +12,13 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PartNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductLabel)
+            @Html.DisplayNameFor(model => model.Label)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StartingInventory)
@@ -41,13 +41,13 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
+            @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PartNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductLabel)
+            @Html.DisplayFor(modelItem => item.Label)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.StartingInventory)
@@ -65,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.MinimumRequired)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
 }

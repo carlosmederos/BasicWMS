@@ -7,7 +7,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using BasicWMS.DAL;
+using BasicWMS.Data;
 
 namespace BasicWMS
 {
@@ -19,7 +19,7 @@ namespace BasicWMS
         protected void Application_Start()
         {
 
-            Database.SetInitializer(new WmsDatabaseInitializer());
+            Database.SetInitializer(new BasicWmsContextSeedData());
 
             AreaRegistration.RegisterAllAreas();
 

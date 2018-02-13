@@ -1,4 +1,4 @@
-﻿@model BasicWMS.Models.Product
+﻿@model BasicWMS.Model.Product
 
 @{
     ViewBag.Title = "Edit";
@@ -13,14 +13,14 @@
     <fieldset>
         <legend>Product</legend>
 
-        @Html.HiddenFor(model => model.ProductId)
+        @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ProductName)
+            @Html.LabelFor(model => model.Name)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ProductName)
-            @Html.ValidationMessageFor(model => model.ProductName)
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
 
         <div class="editor-label">
@@ -32,11 +32,11 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.ProductLabel)
+            @Html.LabelFor(model => model.Label)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.ProductLabel)
-            @Html.ValidationMessageFor(model => model.ProductLabel)
+            @Html.EditorFor(model => model.Label)
+            @Html.ValidationMessageFor(model => model.Label)
         </div>
 
         <div class="editor-label">

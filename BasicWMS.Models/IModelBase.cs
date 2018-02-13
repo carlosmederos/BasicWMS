@@ -1,4 +1,4 @@
-﻿namespace BasicWMS.Models
+﻿namespace BasicWMS.Model
 {
     public interface IModelBase
     {

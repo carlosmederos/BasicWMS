@@ -184,11 +184,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
-    <Compile Include="Controllers\ProductApiController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
-    <Compile Include="Controllers\PurchaseController.cs" />
-    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -261,25 +257,11 @@
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
-    <Content Include="Views\Order\Details.cshtml" />
-    <Content Include="Views\Order\Create.cshtml" />
-    <Content Include="Views\Order\Edit.cshtml" />
-    <Content Include="Views\Order\Delete.cshtml" />
-    <Content Include="Views\Purchase\Index.cshtml" />
-    <Content Include="Views\Purchase\Details.cshtml" />
-    <Content Include="Views\Purchase\Create.cshtml" />
-    <Content Include="Views\Purchase\Edit.cshtml" />
-    <Content Include="Views\Purchase\Delete.cshtml" />
-    <Content Include="Views\Supplier\Index.cshtml" />
-    <Content Include="Views\Supplier\Details.cshtml" />
-    <Content Include="Views\Supplier\Create.cshtml" />
-    <Content Include="Views\Supplier\Edit.cshtml" />
-    <Content Include="Views\Supplier\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
@@ -287,13 +269,24 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\BasicWMS.Data\BasicWMS.Data.csproj">
       <Project>{a03e4c51-e3ac-4c0d-a05b-c005025ea6de}</Project>
       <Name>BasicWMS.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BasicWMS.Models\BasicWMS.Models.csproj">
+    <ProjectReference Include="..\BasicWMS.Models\BasicWMS.Model.csproj">
       <Project>{8442bc9a-67b1-4813-952c-f97af9aed7f0}</Project>
-      <Name>BasicWMS.Models</Name>
+      <Name>BasicWMS.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicWMS.Service\BasicWMS.Service.csproj">
+      <Project>{80ce4b59-294c-4c07-9424-84c688c05cda}</Project>
+      <Name>BasicWMS.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BasicWMS.Tests\BasicWMS.Tests.csproj">
+      <Project>{79449ebe-63cb-4f44-ab21-71c416ff7b74}</Project>
+      <Name>BasicWMS.Tests</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

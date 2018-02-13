@@ -1,4 +1,4 @@
-﻿@model BasicWMS.Models.Product
+﻿@model BasicWMS.Model.Product
 
 @{
     ViewBag.Title = "Details";
@@ -10,10 +10,10 @@
     <legend>Product</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ProductName)
+         @Html.DisplayNameFor(model => model.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ProductName)
+        @Html.DisplayFor(model => model.Name)
     </div>
 
     <div class="display-label">
@@ -24,10 +24,10 @@
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.ProductLabel)
+         @Html.DisplayNameFor(model => model.Label)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.ProductLabel)
+        @Html.DisplayFor(model => model.Label)
     </div>
 
     <div class="display-label">
@@ -66,6 +66,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.ProductId }) |
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

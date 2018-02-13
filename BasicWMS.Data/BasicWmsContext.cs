@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BasicWMS.Data.Configurations;
-using BasicWMS.Models;
+using BasicWMS.Model;
 
 namespace BasicWMS.Data
 {

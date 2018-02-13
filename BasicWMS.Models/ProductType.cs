@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BasicWMS.Models
+namespace BasicWMS.Model
 {
     public class ProductType : IModelBase
     {
