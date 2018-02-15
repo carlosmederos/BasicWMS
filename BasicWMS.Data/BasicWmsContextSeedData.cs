@@ -40,14 +40,14 @@ namespace BasicWMS.Data
 
         private Role[] GenerateRoles()
         {
-            Role[] _roles = new Role[]
+            var roles = new Role[]
             {
                 new Role()
                 {
                     Name = "Admin"
                 }
             };
-            return _roles;
+            return roles;
         }
     }
 }

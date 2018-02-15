@@ -10,7 +10,6 @@ using BasicWMS.Service;
 
 namespace BasicWMS.Controllers
 {
-    [Authorize]
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
@@ -35,7 +34,7 @@ namespace BasicWMS.Controllers
         public ActionResult Details(int id = 0)
         {
 
-            Product product = _productService.GetProduct(id);
+            var product = _productService.GetProduct(id);
             if (product == null)
             {
                 return HttpNotFound();
