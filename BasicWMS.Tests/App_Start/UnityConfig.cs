@@ -1,6 +1,7 @@
 using System;
 
 using Unity;
+using BasicWMS.Tests.App_Start;
 
 namespace BasicWMS.Tests
 {
