@@ -5,8 +5,10 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using BasicWMS.Model;
 using BasicWMS.Service;
+using BasicWMS.ViewModels;
 
 namespace BasicWMS.Controllers
 {
@@ -25,7 +27,10 @@ namespace BasicWMS.Controllers
         public ActionResult Index()
         {
             IEnumerable<Product> products = _productService.GetProducts().ToList();
-            return View(products);
+
+            //Mapper
+            var productsViewModels = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
+            return View(productsViewModels);
         }
 
         //

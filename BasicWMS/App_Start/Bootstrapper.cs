@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using BasicWMS.AutoMapper;
 
 namespace BasicWMS
 {
@@ -9,7 +10,7 @@ namespace BasicWMS
     {
         public static void Run()
         {
-            
+            AutoMapperConfiguration.Configure();
         }
     }
 }
