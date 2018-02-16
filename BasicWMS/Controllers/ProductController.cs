@@ -40,11 +40,12 @@ namespace BasicWMS.Controllers
         {
 
             var product = _productService.GetProduct(id);
+            var productViewModels = Mapper.Map<Product, ProductViewModel>(product);
             if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(productViewModels);
         }
 
         //
