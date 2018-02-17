@@ -1,0 +1,92 @@
+﻿@model BasicWMS.ViewModels.ProductViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Product</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PartNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PartNumber)
+            @Html.ValidationMessageFor(model => model.PartNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Label)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Label)
+            @Html.ValidationMessageFor(model => model.Label)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StartingInventory)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.StartingInventory)
+            @Html.ValidationMessageFor(model => model.StartingInventory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InventoryReceived)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InventoryReceived)
+            @Html.ValidationMessageFor(model => model.InventoryReceived)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InventoryShipped)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InventoryShipped)
+            @Html.ValidationMessageFor(model => model.InventoryShipped)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.InventoryOnHand)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.InventoryOnHand)
+            @Html.ValidationMessageFor(model => model.InventoryOnHand)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MinimumRequired)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MinimumRequired)
+            @Html.ValidationMessageFor(model => model.MinimumRequired)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
