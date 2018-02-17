@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Service", "BasicWM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS", "BasicWMS\BasicWMS.csproj", "{6687BA68-C370-4688-AA94-9F89A60B4FEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicWMS.Tests", "BasicWMS.Tests\BasicWMS.Tests.csproj", "{79449EBE-63CB-4F44-AB21-71C416FF7B74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6687BA68-C370-4688-AA94-9F89A60B4FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6687BA68-C370-4688-AA94-9F89A60B4FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6687BA68-C370-4688-AA94-9F89A60B4FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79449EBE-63CB-4F44-AB21-71C416FF7B74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
