@@ -1,41 +1,106 @@
-html {
-  position: relative;
-  min-height: 100%;
+section#register {
+    background-color: #f8f8f8;
+    background-size: cover;
 }
 
-body > .container {
-    padding: 60px 15px 0px;
+#cover {
+    background-image: url('/Content/images/cover.jpg');
+    width: 100%;
+    height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+
+
+nav {
+    min-height: 10%;
+    max-height: 10%;
+}
+header {
+    background-color: #F8F8F8;
+    
 }
 
-/* Custom default button */
+
+header ul {
+    margin: 0;
+}
+
+header a,
+header li {
+    
+color: #777;
+font-weight: bold;
+}
+
+section#body-content {
+    
+    margin-top: 5%;
+    width: 100%;
+    padding: 0%;
+    min-width: 100%;
+    height: 100%;
+}
+
+footer {
+  position: absolute; 
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  line-height: 60px; 
+  background-color: #f5f5f5;
+}
+
+
+
+section#cover h1,
+section#cover h2 {
+color: #FFF;
+}
+
+section#cover h2 {
+font-size: 1.5rem;
+}
+section#cover hr {
+width: 10%;
+}
+section#cover .btn-default {
+background-color: rgba(255, 255, 255, 0.5);
+border: none;
+}
+
+
+
+
+section#register {
+    
+    background-color: #f8f8f8;
+    background-size: cover;
+}
+
+
+
+
+
+
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
   color: #333;
-  text-shadow: none; /* Prevent inheritance from `body` */
+  text-shadow: none; 
   border: .05rem solid #fff;
 }
 
-.cover {
-  padding: 0 1.5rem;
-}
-.cover .btn-lg {
+
+#cover .btn-lg {
   padding: .75rem 1.25rem;
   font-weight: 700;
 }
 
-.cover-container {
-    width: 100%; /* Must be percentage or pixels for horizontal alignment */
- }
 
 .site-wrapper {
   display: table;
   width: 100%;
-  height: 100%; /* For at least Firefox */
+  height: 100%; 
   min-height: 100%;
   box-shadow: inset 0 0 5rem rgba(0,0,0,.5);
 }
@@ -43,23 +108,12 @@ body {
   display: table-cell;
   vertical-align: middle;
 }
-.cover-container {
-  margin-right: auto;
-  margin-left: auto;
-}
+
 
 .site-wrapper-inner {
     vertical-align: middle;
   }
-.myfooter {
-  position: absolute; 
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  line-height: 60px; /* Vertically center the text there */
-  background-color: #f5f5f5;
-}
+
 
 .form-signin {
   max-width: 330px;
@@ -93,3 +147,4 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+

@@ -50,8 +50,8 @@ namespace BasicWMS.Data.Infrastructure
 
         public virtual void Delete(Expression<Func<T, bool>> where)
         {
-            IEnumerable<T> objects = _dbSet.Where<T>(where).AsEnumerable();
-            foreach (T obj in objects)
+            var objects = _dbSet.Where<T>(where).AsEnumerable();
+            foreach (var obj in objects)
             {
                 _dbSet.Remove(obj);
             }

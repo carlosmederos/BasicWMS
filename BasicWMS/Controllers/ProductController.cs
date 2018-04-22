@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using BasicWMS.Model;
 using BasicWMS.Service;
+using BasicWMS.Service.Interfaces;
 using BasicWMS.ViewModels;
 
 namespace BasicWMS.Controllers
@@ -15,30 +16,37 @@ namespace BasicWMS.Controllers
     public class ProductController : Controller
     {
         private readonly IProductService _productService;
+        private readonly ICategoryService _categoryService;
+        
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
+            _categoryService = categoryService;
         }
 
         //
         // GET: /Product/
 
-        public ActionResult Index()
+        public ActionResult Index(int categoryId=0)
         {
             IEnumerable<Product> products = _productService.GetProducts().ToList();
-
+            if (categoryId != 0)
+            {
+                products = _categoryService.GetProductsByCategory(categoryId);
+            }
+           
             //Mapper
             var productsViewModels = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
             return View(productsViewModels);
         }
+        
 
         //
         // GET: /Product/Details/5
 
         public ActionResult Details(int id = 0)
         {
-
             var product = _productService.GetProduct(id);
             var productViewModels = Mapper.Map<Product, ProductViewModel>(product);
             if (product == null)
@@ -53,7 +61,7 @@ namespace BasicWMS.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            return View("Create", new ProductViewModel());
         }
 
         //
@@ -61,16 +69,16 @@ namespace BasicWMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Product product)
+        public ActionResult Create(ProductViewModel productViewModel)
         {
             if (ModelState.IsValid)
             {
+                var product = Mapper.Map<ProductViewModel, Product>(productViewModel);
                 _productService.CreateProduct(product);
-                _productService.SaveProduct();
                 return RedirectToAction("Index");
             }
 
-            return View(product);
+            return View(productViewModel);
         }
 
         //
@@ -78,12 +86,13 @@ namespace BasicWMS.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Product product = _productService.GetProduct(id);
+            var product = _productService.GetProduct(id);
+            var productViewModel = Mapper.Map<Product, ProductViewModel>(product);
             if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(productViewModel);
         }
 
         //
@@ -91,15 +100,15 @@ namespace BasicWMS.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Product product)
+        public ActionResult Edit(ProductViewModel productViewModel)
         {
             if (ModelState.IsValid)
             {
+                var product = Mapper.Map<ProductViewModel, Product>(productViewModel);
                 _productService.UpdateProduct(product);
-                _productService.SaveProduct();
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(productViewModel);
         }
 
         //
@@ -107,12 +116,13 @@ namespace BasicWMS.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Product product = _productService.GetProduct(id);
+            var product = _productService.GetProduct(id);
             if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            var productViewModel = Mapper.Map<Product, ProductViewModel>(product);
+            return View(productViewModel);
         }
 
         //
@@ -122,9 +132,8 @@ namespace BasicWMS.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = _productService.GetProduct(id);
+            var product = _productService.GetProduct(id);
             _productService.DeleteProduct(product);
-            _productService.SaveProduct();
             return RedirectToAction("Index");
         }
         /*

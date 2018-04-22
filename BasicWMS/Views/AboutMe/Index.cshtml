@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "AboutMe";
+}
+
+<h2>About Me</h2>
+
+<span data-bind="text: fullName"></span>
+
+<input type="text" data-bind="value: prueba"/>
+
+<button class="btn btn-danger" data-bind="click: probarClick">Click me!!!</button>
+
+<script type="text/javascript" src="~/Scripts/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="~/Scripts/ViewModels/AboutMeViewModel.js"></script>

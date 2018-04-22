@@ -8,7 +8,7 @@ namespace BasicWMS.Data.Infrastructure
 {
     public class DbFactory : Disposable, IDbFactory
     {
-        private BasicWmsContext _dbContext;
+        BasicWmsContext _dbContext;
 
         public BasicWmsContext Init()
         {
