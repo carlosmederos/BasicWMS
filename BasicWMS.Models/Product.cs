@@ -6,34 +6,34 @@ using System.Web;
 
 namespace BasicWMS.Model
 {
-    public class Product : IModelBase
+    public class Product
     {
-        public Product()
-        {
-            Stocks = new List<Stock>();
-        }
-
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string Codigo { get; set; }
 
-        public string PartNumber { get; set; }
+        public string Nombre { get; set; }
 
-        public string Label { get; set; }
+        public int CantidadDisponible { get; set; }
 
-        public string Description { get; set; }
+        public int CantidadMinima { get; set; }
 
-        public int StartingInventory { get; set; }
+        public string Descripcion { get; set; }
 
-        public int InventoryReceived { get; set; }
+        private bool _disponible;
+        public bool Disponible
+        {
+            get
+            {
+                _disponible = CantidadMinima <= CantidadDisponible;
+                return _disponible;
+            }
+            set { _disponible = CantidadMinima <= CantidadDisponible; }
+        }
 
-        public int InventoryShipped { get; set; }
+        public int CategoriaId { get; set; }
 
-        public int InventoryOnHand { get; set; }
-
-        public int MinimumRequired { get; set; }
-
-        public virtual ICollection<Stock> Stocks { get; set; }
+        public virtual Category Categoria { get; set; }
 
     }
 }

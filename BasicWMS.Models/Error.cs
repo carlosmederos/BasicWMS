@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BasicWMS.Model
 {
-    public class Error : IModelBase
+    public class Error
     {
         public int Id { get; set; }
         public string Message { get; set; }

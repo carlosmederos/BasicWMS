@@ -1,92 +1,109 @@
-﻿@model BasicWMS.ViewModels.ProductViewModel
+﻿@using System.Web.Mvc
+@model BasicWMS.ViewModels.ProductViewModel
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div class="login-form">
+    @using (Html.BeginForm("Create", "Product", FormMethod.Post,
+        new
+        {
+            @class = "form-horizontal",
+        }))
+    {
+        @Html.AntiForgeryToken()
+        <h3 class="form-signin-heading text-center">Create Product </h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Codigo, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.Codigo,
+                htmlAttributes: new
+                {
+                    id = "product-codigo",
+                    placeholder = "Codigo",
+                    @class = "form-control",
+                    data_bind = "value: product.codigo"
+                })
+            @Html.ValidationMessageFor(model => model.Codigo, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.Nombre,
+                htmlAttributes: new
+                {
+                    id = "product-nombre",
+                    placeholder = "Nombre",
+                    @class = "form-control",
+                    data_bind = "value: product.nombre"
+                })
+            @Html.ValidationMessageFor(model => model.Nombre, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CantidadDisponible, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.CantidadDisponible,
+                htmlAttributes: new
+                {
+                    id = "product-cantidadDisponible",
+                    placeholder = "Cantidad Disponible",
+                    @class = "form-control",
+                    data_bind = "value: product.cantidadDisponible"
+                })
+            @Html.ValidationMessageFor(model => model.CantidadDisponible, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.CantidadMinima, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.CantidadMinima,
+                htmlAttributes: new
+                {
+                    id = "product-cantidadMinima",
+                    placeholder = "Cantidad Minima",
+                    @class = "form-control",
+                    data_bind = "value: product.cantidadMinima"
+                })
+            @Html.ValidationMessageFor(model => model.CantidadMinima, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.Descripcion,
+                htmlAttributes: new
+                {
+                    id = "product-descripcion",
+                    placeholder = "Descripcion",
+                    @class = "form-control",
+                    data_bind = "value: product.descripcion"
+                })
+            @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
 
-    <fieldset>
-        <legend>Product</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+        <div class="form-group">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary">
+                    Create
+                </button>
+            </div>
         </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.PartNumber)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.PartNumber)
-            @Html.ValidationMessageFor(model => model.PartNumber)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Label)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Label)
-            @Html.ValidationMessageFor(model => model.Label)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.StartingInventory)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.StartingInventory)
-            @Html.ValidationMessageFor(model => model.StartingInventory)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.InventoryReceived)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.InventoryReceived)
-            @Html.ValidationMessageFor(model => model.InventoryReceived)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.InventoryShipped)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.InventoryShipped)
-            @Html.ValidationMessageFor(model => model.InventoryShipped)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.InventoryOnHand)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.InventoryOnHand)
-            @Html.ValidationMessageFor(model => model.InventoryOnHand)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.MinimumRequired)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.MinimumRequired)
-            @Html.ValidationMessageFor(model => model.MinimumRequired)
-        </div>
-
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+    }
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<script type="text/javascript" src="~/Scripts/knockout-3.4.2.js"></script>
+<script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="~/Scripts/ViewModels/ProductVM/NewProductViewModel.js"></script>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval",
+        "/Scripts/knockout-3.4.2.js",
+        "/Scripts/jquery-2.0.3.js",
+        "/Scripts/ViewModels/ProductVM/CreateProductViewModel.js")
+        <script>
+            var viewModel = new CreateProductViewModel(@Html.HtmlConvertToJson(Model));
+            ko.applyBindings(viewModel);
+        </script>
+    }*@

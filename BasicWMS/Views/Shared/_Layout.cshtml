@@ -1,58 +1,64 @@
 ﻿@using System.Web.UI.HtmlControls
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>@ViewBag.Title - My ASP.NET MVC Application</title>
+    <title>@ViewBag.Title</title>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     @Styles.Render("~/Content/bootstrapcss")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            @Html.ActionLink("Basic WMS", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
+    <div class="navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle"
+                    data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Basic WMS", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
                     <li class="nav-item">
-                        @Html.ActionLink("Current Inventory", "Index", "Product", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                        @Html.ActionLink("Productos", "Index", "Product", routeValues: null, htmlAttributes: new { @class = "nav-link" })
                         <!--<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
                     </li>
                     <li class="nav-item">
                         @Html.ActionLink("Incoming Purchases", "Index", "Purchase", routeValues: null, htmlAttributes: new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Outgoing Orders", "Index", "Order", routeValues: null, htmlAttributes: new { @class = "nav-link" })
-                    </li>
-                    <li class="nav-item">
-                        @Html.ActionLink("Suppliers", "Index", "Supplier", routeValues: null, htmlAttributes: new { @class = "nav-link" })
+                        @Html.ActionLink("About Me", "Index", "AboutMe", routeValues: null, htmlAttributes: new { @class = "nav-link" })
                     </li>
                 </ul>
-
-                <div>
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
+                <div class="navbar-right">
+                    @Html.Partial("_LoginPartial")
                 </div>
             </div>
-        </nav>
-    </header>
-    
-            @RenderSection("featured", required: false)
-            <main role="main" class="container">
-                @RenderBody()
-        </main>
-    <footer class="myfooter">
-        <div class="container">
-            <span class="text-muted">&copy; @DateTime.Now.Year - Basic WMS</span>
         </div>
-    </footer>
+    </div>
+
+    @RenderSection("featured", required: false)
+
+    <div class="body-content">
+        @RenderBody()
+        
+        
+    </div>
+    <footer class="text-center">
+
+            <span class="text-muted text-capitalize">&copy; @DateTime.Now.Year - Basic WMS</span>
+        </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrapjs")
+    @RenderSection("scripts", required: false)
+
 </body>
 
 
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/bootstrapjs")
-@RenderSection("scripts", required: false)
 
 </html>

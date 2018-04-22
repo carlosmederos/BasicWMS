@@ -1,0 +1,115 @@
+﻿@using System.Web.Mvc.Html
+@model BasicWMS.ViewModels.RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<div class="login-form">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post,
+        new
+        {
+            @class = "form-horizontal",
+            data_bind = "submit: validateAndSave"
+        }))
+    {
+        @Html.AntiForgeryToken()
+        <h3 class="form-signin-heading text-center">Sign up </h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.FirstName,
+                    htmlAttributes: new
+                    {
+                        id = "register-firstName",
+                        placeholder = "First Name",
+                        @class = "form-control",
+                        data_bind = "value: user.firstName"
+                    })
+            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.LastName,
+                    htmlAttributes: new
+                    {
+                        id = "register-lastName",
+                        placeholder = "Last Name",
+                        @class = "form-control",
+                        data_bind = "value: user.lastName"
+                    })
+            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.UserName,
+                    htmlAttributes: new
+                    {
+                        id = "register-userName",
+                        placeholder = "User Name",
+                        @class = "form-control",
+                        data_bind = "value: user.userName"
+                    })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.Email,
+                    htmlAttributes: new
+                    {
+                        id = "register-email",
+                        placeholder = "Email",
+                        @class = "form-control",
+                        data_bind = "value: user.email"
+                    })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.Password,
+                    htmlAttributes: new
+                    {
+                        id = "register-password",
+                        placeholder = "Password",
+                        @class = "form-control",
+                        data_bind = "value: user.password"
+                    })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label pull-left" })
+            @Html.TextBoxFor(model => model.ConfirmPassword,
+                    htmlAttributes: new
+                    {
+                        id = "register-confirmPassword",
+                        placeholder = "Confirm Password",
+                        @class = "form-control",
+                        data_bind = "value: user.confirmPassword"
+                    })
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"
+                    data-bind="click: validateAndSave">
+                    Register</button>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+    @Scripts.Render("/Scripts/knockout-3.4.2.js",
+    "/Scripts/jquery-2.0.3.js",
+    "/Scripts/ViewModels/AccountVM/RegisterViewModel.js")
+    <script>
+        var viewModel = new RegisterViewModel(@Html.HtmlConvertToJson(Model));
+        ko.applyBindings(viewModel);
+    </script>
+}

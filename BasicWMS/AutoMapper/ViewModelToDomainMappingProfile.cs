@@ -18,6 +18,7 @@ namespace BasicWMS.AutoMapper
         public ViewModelToDomainMappingProfile()
         {
             CreateMap<ProductViewModel, Product>();
+            CreateMap<CategoryViewModel, Category>();
         }
     }
 }

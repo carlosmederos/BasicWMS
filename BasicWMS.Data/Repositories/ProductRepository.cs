@@ -16,14 +16,20 @@ namespace BasicWMS.Data.Repositories
         {
         }
 
-        public Product GetByName(string name)
+        public Product GetByName(string nombre)
         {
-            return this.DbContext.ProductSet.Where(p => p.Name == name).FirstOrDefault();
+            return DbContext.ProductSet.FirstOrDefault(p => p.Nombre == nombre);
         }
+
+        public IEnumerable<Product> GetProductForPage(int pageSize, int numPage)
+        {
+            return DbContext.ProductSet.Skip(pageSize*(numPage-1)).Take(pageSize);
+        } 
     }
 
     public interface IProductRepository : IRepository<Product>
     {
         Product GetByName(string name);
+        IEnumerable<Product> GetProductForPage(int pageSize, int numPage);
     }
 }

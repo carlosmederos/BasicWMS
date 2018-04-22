@@ -1,47 +1,46 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using BasicWMS.Model;
-using System.Linq;
-using System.Web;
+using Newtonsoft.Json;
 
 namespace BasicWMS.ViewModels
 {
     public class ProductViewModel
     {
         [Key]
+        [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        [JsonProperty(PropertyName = "codigo")]
+        public string Codigo { get; set; }
 
-        [Required(ErrorMessage = "Please, enter part number")]
-        public string PartNumber { get; set; }
+        [JsonProperty(PropertyName = "nombre")]
+        public string Nombre { get; set; }
 
-        public string Label { get; set; }
+        [JsonProperty(PropertyName = "cantidadDisponibe")]
+        public int CantidadDisponible { get; set; }
 
-        public string Description { get; set; }
+        [JsonProperty(PropertyName = "cantidadMinima")]
+        public int CantidadMinima { get; set; }
 
-        [Required]
-        [DisplayName("Starting Inventory")]
-        public int StartingInventory { get; set; }
+        [JsonProperty(PropertyName = "descripcion")]
+        public string Descripcion { get; set; }
 
-        [Required]
-        [DisplayName("Inventory Received")]
-        public int InventoryReceived { get; set; }
+        private bool _disponible;
+        [JsonProperty(PropertyName = "disponible")]
+        public bool Disponible
+        {
+            get
+            {
+                _disponible = CantidadMinima <= CantidadDisponible;
+                return _disponible;
+            }
+            set { _disponible = CantidadMinima <= CantidadDisponible; }
+        }
 
-        [Required]
-        [DisplayName("Inventory Shipped")]
-        public int InventoryShipped { get; set; }
-
-        [Required]
-        [DisplayName("Inventory on Hand")]
-        public int InventoryOnHand { get; set; }
-
-        [Required]
-        [DisplayName("Minimum Required")]
-        public int MinimumRequired { get; set; }
-
-        public virtual ICollection<Stock> Stocks { get; set; }
+        [JsonProperty(PropertyName = "categoriaId")]
+        public int CategoriaId { get; set; }
+        
+        [JsonProperty(PropertyName = "categoria")]
+        public virtual Category Categoria { get; set; }
     }
 }
