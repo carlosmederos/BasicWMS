@@ -10,6 +10,7 @@ using BasicWMS.Model;
 using BasicWMS.Service;
 using BasicWMS.Service.Interfaces;
 using BasicWMS.ViewModels;
+using PagedList;
 
 namespace BasicWMS.Controllers
 {
@@ -28,17 +29,20 @@ namespace BasicWMS.Controllers
         //
         // GET: /Product/
 
-        public ActionResult Index(int categoryId=0)
+        public ActionResult Index(int? page, int categoryId = 0)
         {
             IEnumerable<Product> products = _productService.GetProducts().ToList();
+//            IEnumerable<Product> products = _productService.GetProductForPage(9, page ?? 1).ToList();
             if (categoryId != 0)
             {
                 products = _categoryService.GetProductsByCategory(categoryId);
             }
+
+//            products = products.ToPagedList(page ?? 1, 9);
            
             //Mapper
             var productsViewModels = Mapper.Map<IEnumerable<Product>, IEnumerable<ProductViewModel>>(products);
-            return View(productsViewModels);
+            return View(productsViewModels.ToPagedList(page ?? 1, 9));
         }
         
 
